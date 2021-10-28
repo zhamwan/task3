@@ -5,10 +5,10 @@ import java.security.SecureRandom;
 public class Random {
     SecureRandom random = new SecureRandom();
 
-    public String getKey(){
+    public byte[] getKey(){
         byte bytes[] = new byte[16];
         random.nextBytes(bytes);
-        return bytes.toString();
+        return bytes;
     }
 
     public int getStep(int len){
