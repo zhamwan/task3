@@ -1,4 +1,5 @@
 package src;
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class Main {
@@ -7,7 +8,8 @@ public class Main {
         Scanner in = new Scanner(System.in);
         Table table = new Table(args);
         table.CreateTable();
-        Key key = new Key(random.getKey());
+        byte[] keyRandom = random.getKey();
+        Key key = new Key(keyRandom.toString());
         if (args.length  == 0 ){
             System.out.println("Введите  ходы");
             System.exit(0);
@@ -16,6 +18,7 @@ public class Main {
             System.out.println("Введите нечетное кол-во ходов и больше 1");
             System.exit(0);
         }
+        System.out.println(String.format("key:%032x", new BigInteger(1, keyRandom)));
         while (true){
             int step = random.getStep(args.length);
             try{
